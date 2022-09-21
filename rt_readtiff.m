@@ -15,8 +15,12 @@ while 1
     fn0 = dir([DataDir '*0000.tiff']);
     if size(fn0,1)
         Header = extractBefore(fn0.name,'0000');
+        %warning('off')
         break;
     else
+        if ~exist('wf')
+        wf = warndlg('No tiff files have been generated yet. Please start the camera.');
+        end
         pause(0.001)
     end
 end
